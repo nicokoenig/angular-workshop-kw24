@@ -12,4 +12,7 @@
 
 <app-title-box></app-title-box>
 <app-title-box title="Statischer String ⚡️"></app-title-box>
-<app-title-box [title]="title"></app-title-box>
+<app-title-box
+  [title]="title"
+  (titleClicked)="logToConsole($event)"
+></app-title-box>
