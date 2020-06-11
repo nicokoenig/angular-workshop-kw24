@@ -24,6 +24,16 @@ export class BookDataService {
   constructor() {}
 
   getBooks(): Observable<Book[]> {
-    return of(this.books);
+    return of(this.books).pipe(delay(500));
+  }
+
+  getSingleBooks(): Observable<Book> {
+    return interval(1000).pipe(
+      take(3),
+      map((i) => this.books[i]),
+      tap((book) => {
+        console.log('🐈');
+      })
+    );
   }
 }

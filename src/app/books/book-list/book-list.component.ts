@@ -25,6 +25,11 @@ export class BookListComponent implements OnInit {
         console.log('Complete 🔥');
       }
     );
+
+    // Alternative Lösung
+    // this.bookData.getSingleBooks().subscribe((book) => {
+    //   this.books.push(book);
+    // });
   }
 
   ngOnInit(): void {}
