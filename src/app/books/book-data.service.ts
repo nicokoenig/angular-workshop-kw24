@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Book } from './book-list/book.interface';
 import { BooksModule } from './books.module';
+import { Observable, of, from, interval } from 'rxjs';
+import { delay, take, map, tap } from 'rxjs/operators';
 
 @Injectable()
 export class BookDataService {
@@ -21,7 +23,7 @@ export class BookDataService {
 
   constructor() {}
 
-  getBooks(): Book[] {
-    return this.books;
+  getBooks(): Observable<Book[]> {
+    return of(this.books);
   }
 }

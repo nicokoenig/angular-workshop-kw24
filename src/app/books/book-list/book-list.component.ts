@@ -11,7 +11,20 @@ export class BookListComponent implements OnInit {
   books: Book[] = [];
 
   constructor(private bookData: BookDataService) {
-    this.books = this.bookData.getBooks();
+    const nextFn = (books: Book[]) => {
+      console.log('Neue Bücher 👍: ', books);
+      this.books = books;
+    };
+
+    this.bookData.getBooks().subscribe(
+      nextFn,
+      (err) => {
+        console.error(err);
+      },
+      () => {
+        console.log('Complete 🔥');
+      }
+    );
   }
 
   ngOnInit(): void {}

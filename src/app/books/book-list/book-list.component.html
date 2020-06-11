@@ -1,5 +1,7 @@
 <h4>Book List</h4>
 
+<p *ngIf="books.length === 0">Leider keine Bücher da!</p>
+
 <ul>
   <li *ngFor="let book of books">
     {{ book.title }}
