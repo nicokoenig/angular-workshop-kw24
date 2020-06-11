@@ -1,9 +1,9 @@
 <h4>Book List</h4>
 
-<p *ngIf="books.length === 0">Leider keine Bücher da!</p>
+<p *ngIf="(books$ | async)?.length === 0">Leider keine Bücher da!</p>
 
 <ul>
-  <li *ngFor="let book of books">
+  <li *ngFor="let book of books$ | async">
     {{ book.title }}
   </li>
 </ul>
