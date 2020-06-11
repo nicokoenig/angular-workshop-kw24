@@ -1,22 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Book } from './book.interface';
 import { BookDataService } from '../book-data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-book-list',
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.scss'],
 })
-export class BookListComponent implements OnInit {
+export class BookListComponent implements OnInit, OnDestroy {
+  subscription: Subscription = Subscription.EMPTY;
+
   books: Book[] = [];
 
-  constructor(private bookData: BookDataService) {
+  constructor(private bookData: BookDataService) {}
+
+  ngOnInit(): void {
     const nextFn = (books: Book[]) => {
       console.log('Neue Bücher 👍: ', books);
       this.books = books;
     };
 
-    this.bookData.getBooks().subscribe(
+    this.subscription = this.bookData.getBooks().subscribe(
       nextFn,
       (err) => {
         console.error('Gibt heute keine Bücher 😭', err);
@@ -32,5 +37,7 @@ export class BookListComponent implements OnInit {
     // });
   }
 
-  ngOnInit(): void {}
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
 }
