@@ -19,7 +19,7 @@ export class BookListComponent implements OnInit {
     this.bookData.getBooks().subscribe(
       nextFn,
       (err) => {
-        console.error(err);
+        console.error('Gibt heute keine Bücher 😭', err);
       },
       () => {
         console.log('Complete 🔥');
