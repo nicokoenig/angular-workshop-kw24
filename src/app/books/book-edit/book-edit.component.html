@@ -1,0 +1,20 @@
+<h4>Book Edit 🖍 <a routerLink="..">Back to Details</a></h4>
+
+<ng-container *ngIf="book">
+  <form #form="ngForm">
+    <label for="title">Title</label>
+    <input
+      type="text"
+      id="title"
+      name="title"
+      [(ngModel)]="book.title"
+      required
+    />
+
+    <button type="submit">Speichern</button>
+  </form>
+
+  <pre>
+      {{ form.value | json }}
+  </pre>
+</ng-container>
