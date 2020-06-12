@@ -1,5 +1,7 @@
 <h4>Book List</h4>
 
+<a routerLink="new">Create new Book 🚀</a>
+
 <p *ngIf="(books$ | async)?.length === 0">Leider keine Bücher da!</p>
 
 <ul>

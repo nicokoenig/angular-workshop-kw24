@@ -1,0 +1,9 @@
+<p>book-new works!</p>
+
+<form [formGroup]="form">
+  <label for="title">Title</label>
+  <input formControlName="title" type="text" id="title" autocomplete="off" />
+  <div [hidden]="isTitleValid">
+    Der Titel darf nicht leer sein ⚠️
+  </div>
+</form>
