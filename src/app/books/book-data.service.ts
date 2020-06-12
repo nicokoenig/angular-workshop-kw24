@@ -16,4 +16,8 @@ export class BookDataService {
   getBookByIsbn(isbn: string): Observable<Book> {
     return this.http.get<Book>(`${this.baseUrl}/books/${isbn}`);
   }
+
+  updateBook(book: Book) {
+    return this.http.put<Book>(`${this.baseUrl}/books/${book.isbn}`, book);
+  }
 }

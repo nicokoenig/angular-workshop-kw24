@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Book } from '../book-list/book.interface';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BookDataService } from '../book-data.service';
 import { switchMap } from 'rxjs/operators';
 
@@ -15,6 +15,7 @@ export class BookEditComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private bookData: BookDataService
   ) {}
 
@@ -30,7 +31,11 @@ export class BookEditComponent implements OnInit {
       });
   }
 
-  save(formValue: Partial<Book>) {
-    console.log(formValue);
+  save() {
+    if (this.book) {
+      this.bookData.updateBook(this.book).subscribe(() => {
+        this.router.navigate(['..']);
+      });
+    }
   }
 }
