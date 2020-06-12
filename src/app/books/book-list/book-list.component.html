@@ -4,6 +4,6 @@
 
 <ul>
   <li *ngFor="let book of books$ | async">
-    {{ book.title }}
+    {{ book.title }} <a [routerLink]="['/books', book.isbn]">Details 🧐</a>
   </li>
 </ul>
