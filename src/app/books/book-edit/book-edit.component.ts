@@ -29,4 +29,8 @@ export class BookEditComponent implements OnInit {
         this.book = book;
       });
   }
+
+  save(formValue: Partial<Book>) {
+    console.log(formValue);
+  }
 }
