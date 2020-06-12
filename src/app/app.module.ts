@@ -8,6 +8,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { InfoBoxComponent } from './info-box/info-box.component';
 import { MouseCursorComponent } from './mouse-cursor/mouse-cursor.component';
 import { TitleBoxComponent } from './title-box/title-box.component';
+import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { TitleBoxComponent } from './title-box/title-box.component';
     InfoBoxComponent,
     MouseCursorComponent,
     TitleBoxComponent,
+    NotAuthorizedComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, AboutModule],
   providers: [],
